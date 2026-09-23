@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/telaInicial.css">
+    <link rel="stylesheet" href="css/quiz.css">    
+    <link rel="stylesheet" href="css/calculadora.css"> 
+    <link rel="stylesheet" href="css/pasta-fundo.css">
+
+</head>
+<body id="body">
+    <!--Tela inicial-->
+    <div class="apps-div">
+        <button class="apps"><img class="apps-img" src="arquivos/COMPUTADOR-definitivo.png" alt="computador"></button>
+        <button class="apps"><img class="apps-img" src="arquivos/LIXO-definitivo.png" alt="trash"></button>
+        <button class="apps"><img class="apps-img" src="arquivos/PAINT-definitivo.png" alt="paint"></button>
+        <button class="apps"><img class="apps-img" src="arquivos/PASTA-definitivo.png" alt="folder"></button>
+        <button class="apps" onclick="pastaFundoAberto()"><img class="apps-img" src="arquivos/PASTA-definitivo.png" alt="folder"></button>
+        <button class="apps" onclick="abrirConfirmacaoQuiz()"><img class="apps-img" src="arquivos/CALCULADORA-definitivo.png" alt="calculadora"></button>
+    </div>
+
+    <div class="barra">
+        <footer> 
+            <img src="arquivos/chave.png" alt="DoorOS">
+            <p>Door.OS</p>
+            <button>Iniciar</button>
+            <p>Bem-Vindo</p>
+            <p id="relogio"></p>
+            
+        </footer>
+    </div>
+
+    <!--Parte da confirmacao se vai fazer o quiz ou nao-->
+    <div id="confirmacaoPopUp">
+        <div class="barra-titulo">
+            <span>Aviso do Sistema</span>
+            <div class="botoes-janela">
+                <button class="btn-enfeite" onclick="fecharConfirmacaoQuiz()">×</button>
+            </div>
+        </div>
+        <h2>Bem-Vindo ao Quiz Door.OS</h2>
+        <h3>Como funciona:</h3>
+        <ul>
+            <li>Você terá 30 segundos para responder o quiz</li>
+            <li>Cada acerto resulta em 1 ponto</li>
+            <li>Consequentemente cada erro resulta em -1 ponto</li>
+        </ul>
+        <div class="botoes-confirmacao">
+            <button class="confirmacao-quiz" onclick="fecharConfirmacaoQuiz()">Voltar</button>
+            <button class="confirmacao-quiz" onclick="abrirPopUp(), tempo(), pergunta(), fecharConfirmacaoQuiz()">Começar</button>
+        </div>
+    </div>
+
+    <!--Quiz-->
+    <div id="popUp">
+        <div class="barra-titulo">
+            <span>Aviso do Sistema</span>
+            <div class="botoes-janela">
+                <button class="btn-enfeite" onclick="fecharPopUp('popUp')">×</button>
+            </div>
+        </div>
+        <div class="conteudo-janela">
+            <div class="painel-status">
+                <p class="tempo" id="tempoExibir"></p>
+                <p id="ponto"></p>
+            </div>  
+            <p class="txt" id="pergunta"></p>   
+            <div class="caixa-de-respostas" id="caixa-de-respostas">
+                <button class="txt"  id="alternativaA" onclick="alternativa('a')"></button>
+                <button class="txt"  id="alternativaB" onclick="alternativa('b')"></button>
+                <button class="txt"  id="alternativaC" onclick="alternativa('c')"></button>
+                <button class="txt"  id="alternativaD" onclick="alternativa('d')"></button>
+            </div>
+        </div>
+    </div>
+
+    <!--Quiz - Sucesso-->
+    <div id="popUpPassou">
+        <div class="barra-titulo">
+            <span>Sucesso</span>
+            <div class="botoes-janela">
+                <button class="btn-enfeite" onclick="fecharPopUp('popUpPassou')">×</button>
+            </div>
+        </div>
+        <div class="conteudo-janela">
+            <h2 class="titulo-resultado-quiz">Você passou no teste!!!</h2>
+            <p class="pontos" id="pontuacaoPass">Pontuação: </p>
+            <p class="pontos" id="pontuacaoPEtec">Menção: </p>
+            <p class="pontos">Aura: +67</p>
+        </div>
+    </div>
+
+    <!--Quiz - Regresso-->
+    <div id="popUpReprovou">
+        <div class="barra-titulo">
+            <span>Erro Critico</span>
+            <div class="botoes-janela">
+                <button class="btn-enfeite" onclick="fecharPopUp('popUpReprovou')">×</button>
+            </div>
+        </div>
+        <div class="conteudo-janela">
+            <h2 class="titulo-resultado-quiz">Você não está apto para utilizar a calculadora</h2>
+            <p class="pontos" id="pontuacaoRepr">Pontuação: </p>
+            <p class="pontos" id="pontuacaoREtec">Menção: </p>
+            <p class="pontos">Aura: -67</p>
+        </div>
+    </div>
+
+    <!--Calculadora-->
+    <div class="janela" id="janela">
+        <div class="barra-titulo">
+            <span>Calculadora</span>
+            <div class="botoes-janela">
+                <button class="btn-enfeite">-</button>
+                <button class="btn-enfeite" onclick="maximizarOuMinimizarTela()">□</button>
+                <button class="btn-enfeite" onclick="voltar()">×</button>
+            </div>
+        </div>
+        <div class="calc-hist">
+            <div id="display-calc">
+                <div class="campo-de-numeros" id="campo-de-numeros">
+                    <p class="exibir-calculo" id="exibir-calculo"></p>
+                    <h2 class="numero" id="exibir">0</h2>
+                </div>
+
+                <div class="teclado-numerico">
+                    <button onclick="inserirNumero('quad')" class="teclas">x²</button>
+                    <button onclick="inserirNumero('c')" class="teclaC">C</button>
+                    <button onclick="inserirNumero('backspace')" class="teclas">⌫</button>
+                    <button onclick="inserirNumero('/')" class="tecla-operacao">÷</button>
+                    <button onclick="inserirNumero('7')" class="teclas">7</button>
+                    <button onclick="inserirNumero('8')" class="teclas">8</button>
+                    <button onclick="inserirNumero('9')" class="teclas">9</button>
+                    <button onclick="inserirNumero('*')" class="tecla-operacao">×</button>
+                    <button onclick="inserirNumero('4')" class="teclas">4</button>
+                    <button onclick="inserirNumero('5')" class="teclas">5</button>
+                    <button onclick="inserirNumero('6')" class="teclas">6</button>
+                    <button onclick="inserirNumero('-')" class="tecla-operacao">-</button>
+                    <button onclick="inserirNumero('1')" class="teclas">1</button>
+                    <button onclick="inserirNumero('2')" class="teclas">2</button>
+                    <button onclick="inserirNumero('3')" class="teclas">3</button>
+                    <button onclick="inserirNumero('+')" class="tecla-operacao">+</button>
+                    <button onclick="inserirNumero('maisOuMenos')" class="teclas">+/-</button>
+                    <button onclick="inserirNumero('0')" class="teclas">0</button>
+                    <button onclick="inserirNumero(',')" class="teclas">,</button>
+                    <button onclick="inserirNumero('=')" class="tecla-igual">=</button> 
+                </div>
+            </div>
+            <div id="historico">
+                <h2 class="titulo-historico">Histórico:</h2>
+                <div class="lista-historico" id="lista-historico"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--Pasta que muda o wallpaper-->
+    <div id="pastaFundo">
+        <div class="barra-titulo">
+            <span>Papel de parede</span>
+            <div class="botoes-janela">
+                <button class="btn-enfeite">-</button>
+                <button class="btn-enfeite" onclick="ajustarTela()">□</button>
+                <button class="btn-enfeite" onclick="pastaFundoFechado('x')">×</button>
+            </div>
+        </div>
+
+        <div class="titulo-background">
+            <h1>Papéis de parede predefinidos</h1>
+        </div>
+
+        <div id="pastaFundoConteudo">
+            <button class="bloco-imagem" onclick="alterarNormal()">
+                <img src="arquivos/parede.png" alt="papel de parede oficial">
+            </button>
+            <button class="bloco-imagem" onclick="alterarCachorros()">
+                <img src="arquivos/cachorros feios.jpg" alt="cachorros">
+            </button>
+            <button class="bloco-imagem" onclick="alterarCachorroFeo()">
+                <img src="arquivos/doge feio.jpeg" alt="um cachorro">
+            </button>
+            <button class="bloco-imagem" onclick="alterarBackrooms()">
+                <img src="arquivos/HobbyTown_USA_Oshkosh_interior_under_construction_2002_(The_Backrooms).jpg" alt="backiruumis">
+            </button>
+        </div>
+    </div>
+
+    <script src="js/calculadora.js"></script> 
+    <script src="js/telaInicial.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/pastaFundo.js"></script>
+</body>
+</html>

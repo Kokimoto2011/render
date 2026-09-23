@@ -1,0 +1,300 @@
+@font-face {
+    font-family: 'MinhaFonteCustomizada';
+    src: url('../arquivos/Pixel\ Digivolve.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, button{
+    font-family: 'MinhaFonteCustomizada', sans-serif;
+}
+
+#confirmacaoPopUp{
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c0c0c0;
+    width: 450px;
+    height: auto;
+    z-index: 1000;
+    border-top: 2px solid #dfdfdf;
+    border-left: 2px solid #dfdfdf;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding: 2px; 
+    box-sizing: border-box;
+    box-shadow: 2px 2px 0px rgba(0,0,0,1);
+}
+
+#confirmacaoPopUp.confirmacao-ativado{
+    display: flex;
+}
+
+#confirmacaoPopUp h2, 
+#confirmacaoPopUp h3,
+#confirmacaoPopUp ul{
+    margin: 5px;
+}
+
+.botoes-confirmacao{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    gap: 25px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.confirmacao-quiz{
+    width: 200px;
+    height: 40px;
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirmacao-quiz:active{
+    background-color: #c0c0c0;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+#popUp, #popUpPassou, #popUpReprovou {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c0c0c0;
+    width: 450px;
+    height: auto;
+    z-index: 1000;
+    border-top: 2px solid #dfdfdf;
+    border-left: 2px solid #dfdfdf;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    padding: 2px; 
+    box-sizing: border-box;
+    box-shadow: 2px 2px 0px rgba(0,0,0,1);
+}
+
+button.certo{
+    color: blue;
+}
+
+button.errado{
+    color: red;
+}
+
+#popUp.ativo, #popUpPassou.ativo, #popUpReprovou.ativo {
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #000080, #1084d0); /* Degradê Win98 */
+    color: white;
+    padding: 2px 3px 2px 5px;
+    width: 100%;
+    height: 22px;
+    box-sizing: border-box;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.conteudo-janela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 20px 25px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.botoes-janela {
+    display: flex;
+    gap: 2px;
+}
+
+.btn-enfeite {
+    background-color: #c0c0c0;
+    width: 16px;
+    height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    border-top: 1px solid #ffffff;
+    border-left: 1px solid #ffffff;
+    border-right: 1px solid #404040;
+    border-bottom: 1px solid #404040;
+    padding: 0;
+    cursor: default;
+}
+
+.btn-enfeite:active {
+    border-top: 1px solid #404040;
+    border-left: 1px solid #404040;
+    border-right: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 1px 0 0 1px;
+}
+
+.caixa-de-respostas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.txt {
+    background-color: #c0c0c0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.txt:active {
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+.painel-status {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    height: 40px; 
+}
+
+
+.painel-status .tempo, .painel-status #ponto {
+    margin: 0;
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+.painel-status .tempo {
+    color: #000080; 
+}
+
+#pergunta {
+    font-size: 22px; 
+    font-weight: bold;
+    background-color: #ffffff;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.conteudo-janela {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex-grow: 1;
+    padding: 15px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.jumpscare-org{
+    width: 400px;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px 5px;
+}
+
+.setinhas{
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    background-color: #c0c0c0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    height: 25px;
+}
+
+.setinhas:active,
+.jumpscare-confirm:active{
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+
+.jumpscare-text{
+    border-left: 2px solid white;
+    border-right: 2px solid #808080;
+
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    
+    margin: 0;
+    padding: 0;
+}
+
+.jumpscare-confirm{
+    grid-column: 2/4;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+    background-color: #c0c0c0;
+    cursor: pointer;
+    margin-top: 10px;
+    padding: 0;
+    height: 40px;
+
+}

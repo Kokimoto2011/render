@@ -1,0 +1,217 @@
+@font-face {
+    font-family: 'MinhaFonteCustomizada';
+    src: url('../arquivos/Pixel\ Digivolve.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, button{
+    font-family: 'MinhaFonteCustomizada', sans-serif;
+}
+
+#janela{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #c0c0c0;
+    width: 60%;
+    height: 67%;
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 4px;
+    border-top: 4px solid #ffffff;
+    border-left: 4px solid #ffffff;
+    border-right: 4px solid #555555;
+    border-bottom: 4px solid #555555;
+    transition: 0.3s;
+}
+
+#janela.tela-cheia{
+    width: 100%;
+    height: calc(100% - 45px);
+    top: 0;
+    transform: translate(-50%, 0);
+}
+
+#janela.aberto{
+    display: flex;
+}
+
+.barra-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000080;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 4px 4px 4px 8px;
+    margin-bottom: 10px;
+}
+
+.calc-hist{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#display-calc{
+    display: flex;
+    flex-direction: column;
+    flex: 4;
+}
+
+#display-calc.tela-cem-porc{
+    width: 80%;
+}
+
+.botoes-janela {
+    display: flex;
+    gap: 2px;
+}
+
+.btn-enfeite {
+    background-color: #c0c0c0;
+    width: 20px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    padding: 0;
+    cursor: default;
+    border-radius: 0;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-right: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+/*naoki lindo*/
+.btn-enfeite:last-child {
+    margin-left: 2px;
+}
+
+.btn-enfeite:active {
+    border-top: 2px solid #000000;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+}
+
+.campo-de-numeros {
+    background-color: #ffffff;
+    height: 20vh;
+    margin: 0 10px 10px 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    border-top: 4px solid #808080;
+    border-left: 4px solid #808080;
+    border-right: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+    word-break: break-all;
+    overflow: auto;
+}
+
+.exibir-calculo {
+    font-size: 20px;
+    color: #808080;
+    margin: 0;
+}
+
+.numero {
+    font-size: 60px;
+    margin: 0;
+    color: #000000;
+}
+
+.teclado-numerico {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    padding: 0 10px 10px 10px;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+.teclas, .tecla-operacao, .teclaC, .tecla-igual {
+    background-color: #c0c0c0;
+    font-family: 'MS Sans Serif', Tahoma, Arial, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 0;
+    border-top: 4px solid #ffffff;
+    border-left: 4px solid #ffffff;
+    border-right: 4px solid #808080;
+    border-bottom: 4px solid #808080;
+}
+
+.teclaC { color: #ff0000; }
+.tecla-operacao { color: #0000ff; }
+
+.teclas:active, .tecla-operacao:active, .teclaC:active, .tecla-igual:active {
+    border-top: 4px solid #000000;
+    border-left: 4px solid #000000;
+    border-right: 4px solid #ffffff;
+    border-bottom: 4px solid #ffffff;
+    background-color: #d0d0d0;
+}
+
+.tela-azul{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 999;
+}
+
+/*historicoo*/
+#historico{
+    flex: 1;
+    display: none;
+    flex-direction: column; 
+    align-items: center;
+}
+
+#historico.exibir-historico{
+    display: flex;
+}
+
+.titulo-historico{
+    font-size: 30px;
+    margin: 0;
+    position: fixed;
+}
+
+.lista-historico{
+    box-sizing: border-box;
+    width: calc(100% - 50px);
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    margin-top: 50px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-break: break-all;
+    margin-bottom: 30px;
+}
+
+.texto-historico{
+    font-size: 30px;
+    color: rgb(131, 131, 131);
+    margin: 0;
+    align-self: flex-end;
+}
+
+.resultado-historico{
+    font-size: 50px;
+    margin: 0;
+}
